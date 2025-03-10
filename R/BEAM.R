@@ -200,7 +200,7 @@ buildBranchCellDataSet <- function(cds,
   
   progenitor_pseudotime_order <- order(pData[common_ancestor_cells, 'Pseudotime'])
   
-  if (progenitor_method == 'duplicate') {
+  if ('duplicate' %in% progenitor_method) {
     ancestor_exprs <- exprs(cds)[,common_ancestor_cells]
     expr_blocks <- list()
     
@@ -248,7 +248,7 @@ buildBranchCellDataSet <- function(cds,
     pData <- do.call(rbind, pData_blocks)
     exprs_data <- do.call(cbind, expr_blocks)
   }
-  else if(progenitor_method == 'sequential_split') {
+  else if('sequential_split' %in% progenitor_method) {
     pData$Branch <- names(paths_to_root)[1]
     
     branchA <- progenitor_pseudotime_order[seq(1, length(common_ancestor_cells), by = 2)]
