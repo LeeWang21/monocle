@@ -311,7 +311,7 @@ asSlamMatrix = function (sp_mat) {
 # Convert a sparseMatrix from Matrix package to a slam matrix
 #' @import Matrix
 isSparseMatrix <- function(x){
-  class(x) %in% c("dgCMatrix", "dgTMatrix")
+  any(class(x) %in% c("dgCMatrix", "dgTMatrix"))
 }
 
 # Estimate size factors for each column, given a sparseMatrix from the Matrix
