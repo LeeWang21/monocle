@@ -1618,7 +1618,6 @@ project2MST <- function(cds, Projection_Method){
         projection <- rbind(projection, tmp)
         distance <- c(distance, dist(rbind(Z_i, tmp)))
       }
-      if(class(projection) != 'matrix')
         projection <- as.matrix(projection)
       P[, i] <- projection[which(distance == min(distance))[1], ] #use only the first index to avoid assignment error
     }
